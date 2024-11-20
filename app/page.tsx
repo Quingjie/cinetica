@@ -32,13 +32,13 @@ const antonio = Antonio({
 export default function CardWithForm() {
   const [isLogged, setIsLogged] = useState(false);
   const [erreur, setErreur] = useState("");
-  let [email, setEmail] = useState("");
-  let [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (email === user.username && password === user.password) {
-      setIsLogged(true);
+      //setIsLogged(true);
       setErreur("");
       window.location.href = "./login";
     }

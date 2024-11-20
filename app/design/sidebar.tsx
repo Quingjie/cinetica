@@ -8,9 +8,7 @@ import {
   SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarHeader,
-  SidebarFooter
+  SidebarMenuItem
 } from "@/components/ui/sidebar";
 
 export const Sidebar = ({ children }: PropsWithChildren) => {
