@@ -16,13 +16,7 @@ import {
 export const Sidebar = ({ children }: PropsWithChildren) => {
   return (
     <div className="bg-white h-full" style={{ gridArea: "sidebar" }}>
-      <SidebarHeader>
-        <h1>Header Content</h1>
-      </SidebarHeader>
       {children}
-      <SidebarFooter>
-        <p>Footer Content</p>
-      </SidebarFooter>
     </div>
   );
 };
