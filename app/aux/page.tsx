@@ -17,29 +17,26 @@ import { Label } from "@/components/ui/label"
 import { user } from "@/repository/user"
 
 export default function CardWithForm() {
-  const [isLogged, setIsLogged] = useState(false);
   const [erreur, setErreur] = useState("");
-  let [email, setEmail] = useState("");
-  let [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (email === user.username && password === user.password) {
-      setIsLogged(true);
       setErreur("");
-      window.location.href="../";
-    }
-    else {
+      window.location.href = "../";
+    } else {
       setErreur("L'adresse e-mail ou le mot de passe est incorrect");
-      setIsLogged(false);
     }
-  }
+  };
+
   return (
     <div className="flex justify-center items-center min-h-screen">
       <Card className="w-[350px] shadow">
         <CardHeader className="flex justify-center">
           <CardTitle className="flex justify-center text-3xl">Connexion</CardTitle>
-          <CardDescription className="flex justify-center">To acces Cinetica</CardDescription>
+          <CardDescription className="flex justify-center">To access Cinetica</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit}>

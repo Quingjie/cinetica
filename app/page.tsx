@@ -30,23 +30,20 @@ const antonio = Antonio({
 });
 
 export default function CardWithForm() {
-  const [isLogged, setIsLogged] = useState(false);
   const [erreur, setErreur] = useState("");
-  let [email, setEmail] = useState("");
-  let [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (email === user.username && password === user.password) {
-      setIsLogged(true);
       setErreur("");
-      window.location.href="./login";
-    }
-    else {
+      window.location.href = "../";
+    } else {
       setErreur("L'adresse e-mail ou le mot de passe est incorrect");
-      setIsLogged(false);
     }
-  }
+  };
+
   return (
     <div className="flex justify-center items-center min-h-screen">
       <Card className="w-[350px] shadow">
@@ -59,8 +56,8 @@ export default function CardWithForm() {
           <form onSubmit={handleSubmit}>
             <div className="grid w-full items-center gap-4">
               <div className="flex flex-col space-y-1.5 text-[#3E1212]">
-                <Label className={antonio.className} htmlFor="name">E-mail Adress</Label>
-                <Input className="bg-[#C9C9C9] rounded-full" id="name" type="email" placeholder="your e-mail adress" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <Label className={antonio.className} htmlFor="email">E-mail Adress</Label>
+                <Input className="bg-[#C9C9C9] rounded-full" id="email" type="email" placeholder="your e-mail adress" value={email} onChange={(e) => setEmail(e.target.value)} />
               </div>
               <div className="flex flex-col space-y-1.5 text-[#3E1212]" >
                 <Label className={antonio.className} htmlFor="password">Password</Label>

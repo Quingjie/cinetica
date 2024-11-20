@@ -1,7 +1,6 @@
 import { PropsWithChildren } from "react";
 import { BookmarkCheck, MonitorPlay, Popcorn, Telescope, UserRound } from "lucide-react";
 
- 
 import {
   SidebarContent,
   SidebarGroup,
@@ -12,12 +11,18 @@ import {
   SidebarMenuItem,
   SidebarHeader,
   SidebarFooter
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
 export const Sidebar = ({ children }: PropsWithChildren) => {
   return (
     <div className="bg-white h-full" style={{ gridArea: "sidebar" }}>
+      <SidebarHeader>
+        <h1>Header Content</h1>
+      </SidebarHeader>
       {children}
+      <SidebarFooter>
+        <p>Footer Content</p>
+      </SidebarFooter>
     </div>
   );
 };
@@ -28,12 +33,12 @@ const item = [
     url: "#",
     icon: Telescope,
   },
-]
+];
 const itemsMovie = [
   {
     title: "Now playing",
     url: "#",
-    icon: Popcorn,
+    icon: MonitorPlay,
   },
   {
     title: "Popular",
@@ -45,7 +50,7 @@ const itemsMovie = [
     url: "#",
     icon: BookmarkCheck,
   },
-]
+];
 const itemsShow = [
   {
     title: "On the air",
@@ -62,8 +67,8 @@ const itemsShow = [
     url: "#",
     icon: BookmarkCheck,
   },
-]
- 
+];
+
 export function AppSidebar() {
   return (
     <Sidebar>
@@ -114,5 +119,5 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
-  )
+  );
 }

@@ -1,6 +1,6 @@
 import { ApplicationLayout } from "../design/ApplicationLayout";
 import { Content } from "../design/content";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { SidebarProvider } from "@/components/ui/sidebar"
 import { AppSidebar } from "../design/sidebar"
 import Image from "next/image";
 import Logo from "../logo.webp";

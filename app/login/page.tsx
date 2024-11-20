@@ -1,7 +1,4 @@
 "use client";
-import Image from "next/image";
-import Logo from "../logo.webp"
-import { useState } from "react";
 //import { isLogged } from "login";
 
 export default function Home() {
