@@ -30,7 +30,7 @@ const antonio = Antonio({
 });
 
 export default function CardWithForm() {
-  const [isLogged, setIsLogged] = useState(false);
+  //const [isLogged, setIsLogged] = useState(false);
   const [erreur, setErreur] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -44,7 +44,7 @@ export default function CardWithForm() {
     }
     else {
       setErreur("L'adresse e-mail ou le mot de passe est incorrect");
-      setIsLogged(false);
+      //setIsLogged(false);
     }
   }
   return (
