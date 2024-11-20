@@ -38,7 +38,7 @@ const itemsMovie = [
   {
     title: "Now playing",
     url: "#",
-    icon: MonitorPlay,
+    icon: Popcorn,
   },
   {
     title: "Popular",
