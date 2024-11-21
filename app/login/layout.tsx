@@ -1,17 +1,19 @@
 import { ApplicationLayout } from "../design/ApplicationLayout";
 import { Content } from "../design/content";
-import { SidebarProvider } from "@/components/ui/sidebar"
-import { AppSidebar } from "../design/sidebar"
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "../design/sidebar";
 import Image from "next/image";
 import Logo from "../logo.webp";
-import { Anton } from 'next/font/google';
-import { Header } from "../design/header";
+import localFont from 'next/font/local';
 
-const anton = Anton({
-  subsets: ['latin'],
+const anton = localFont({
+  src: '../fonts/Anton,Antonio/Anton/Anton-Regular.ttf', // Corrected path
   weight: '400',
+  style: 'normal',
+  variable: '--font-anton',
 });
 
+import { Header } from "../design/header";
 
 export default function RootLayout({
   children,
@@ -31,9 +33,9 @@ export default function RootLayout({
           </div>
         </Header>
         <AppSidebar />
-          <main>
-            <Content>{children}</Content>
-          </main>
+        <main>
+          <Content>{children}</Content>
+        </main>
       </ApplicationLayout>
     </SidebarProvider>
   );
