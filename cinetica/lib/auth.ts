@@ -7,7 +7,6 @@ interface ExtendedUser {
   id: string;
   email: string;
   name: string;
-  apiKey?: string;
 }
 
 export const authOptions: AuthOptions = {
@@ -29,7 +28,6 @@ export const authOptions: AuthOptions = {
             id: user.id,
             email: user.username,
             name: user.name,
-            apiKey: user.apiKey || "",
           } as ExtendedUser;
         }
 
@@ -42,7 +40,6 @@ export const authOptions: AuthOptions = {
       if (user) {
         token.id = user.id;
         token.email = user.email;
-        token.apiKey = user.apiKey;
       }
       return token;
     },
@@ -51,7 +48,6 @@ export const authOptions: AuthOptions = {
         session.user.id = token.id;
         session.user.email = token.email;
         session.user.name = token.name;
-        (session.user as ExtendedUser).apiKey = token.apiKey;
       }
       return session;
     },

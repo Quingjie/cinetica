@@ -2,7 +2,7 @@ import { Movie } from "../app/entities/movie";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../lib/auth";
 import "next-auth";
-import { users } from "./user";
+import { TMDB_API_KEY } from "../lib/tmdb";
 
 const API_BASE_URL = "https://api.themoviedb.org/3";
 
@@ -13,7 +13,7 @@ export const fetchMovies = async (): Promise<Movie[]> => {
     throw new Error("Non authentifié");
   }
 
-  const userApiKey = users[0].apiKey;
+  const userApiKey = TMDB_API_KEY;
   if (!userApiKey) {
     throw new Error("Clé API manquante");
   }
@@ -33,7 +33,7 @@ export const fetchMovieDetails = async (movieId: string): Promise<Movie> => {
     throw new Error("Non authentifié");
   }
 
-  const userApiKey = users[0].apiKey;
+  const userApiKey = TMDB_API_KEY;
   if (!userApiKey) {
     throw new Error("Clé API manquante");
   }
@@ -53,7 +53,7 @@ export const fetchMovieCredits = async (movieId: string): Promise<any> => {
     throw new Error("Non authentifié");
   }
 
-  const userApiKey = users[0].apiKey;
+  const userApiKey = TMDB_API_KEY;
   if (!userApiKey) {
     throw new Error("Clé API manquante");
   }

@@ -1,11 +1,11 @@
 import { Show } from "../app/entities/show";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../lib/auth";
-import { users } from "./user";
+import { TMDB_API_KEY } from "../lib/tmdb";
 
 const API_BASE_URL = "https://api.themoviedb.org/3";
 
-const API_KEY = users[0]?.apiKey;
+const API_KEY = TMDB_API_KEY;
 if (!API_KEY) {
   throw new Error("Clé API utilisateur manquante");
 }

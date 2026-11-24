@@ -2,6 +2,7 @@ import { Show } from '../../../entities/show';
 import { NextResponse } from 'next/server';
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../../../lib/auth";
+import { TMDB_API_KEY } from "../../../../lib/tmdb";
 
 export async function GET() {
   try {
@@ -17,10 +18,10 @@ export async function GET() {
       }, { status: 401 });
     }
 
-    const userApiKey = session.user.apiKey;
+    const userApiKey = TMDB_API_KEY;
     if (!userApiKey) {
-      console.error("Erreur : Clé API manquante");
-      return NextResponse.json({ error: "Clé API manquante" }, { status: 401 });
+      console.error("Erreur : variable d'environnement TMDB_API_KEY manquante");
+      return NextResponse.json({ error: "Clé API manquante" }, { status: 500 });
     }
 
     const response = await fetch(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${userApiKey}`, {

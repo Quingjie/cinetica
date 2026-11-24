@@ -8,7 +8,6 @@ import Image from "next/image";
 import Logo from "../../logo1.jpg";
 import localFont from "next/font/local";
 import { useTheme } from "../theme-provider";
-import { users } from "@/repository/user";
 import { Menu } from "lucide-react";
 
 const anton = localFont({
@@ -75,7 +74,6 @@ export const Header = (props: PropsWithChildren & { onSidebarToggle?: () => void
 
   const handleSearch = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchQuery = e.target.value;
-    const userApiKey = users[0].apiKey;
 
     setQuery(searchQuery);
 
@@ -86,21 +84,13 @@ export const Header = (props: PropsWithChildren & { onSidebarToggle?: () => void
 
     try {
 
-      const [moviesResponse, seriesResponse] = await Promise.all([
-        fetch(
-          `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(
-            searchQuery
-          )}&api_key=${userApiKey}`
-        ),
-        fetch(
-          `https://api.themoviedb.org/3/search/tv?query=${encodeURIComponent(
-            searchQuery
-          )}&api_key=${userApiKey}`
-        ),
-      ]);
-
-      const moviesData = await moviesResponse.json();
-      const seriesData = await seriesResponse.json();
+      // La recherche passe par notre route /api/search : la clé TMDB reste sur le serveur.
+      const response = await fetch(`/api/search?query=${encodeURIComponent(searchQuery)}`);
+      if (!response.ok) {
+        setSuggestions([]);
+        return;
+      }
+      const { movies: moviesData, series: seriesData } = await response.json();
 
       const movieSuggestions =
         moviesData.results?.slice(0, 5).map((movie: { id: number; title: string; poster_path: string | null }) => ({
