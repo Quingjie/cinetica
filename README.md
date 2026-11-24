@@ -4,6 +4,12 @@ Application web pour parcourir des films et des séries, construite avec Next.js
 
 **Démo en ligne :** https://cinet-sigma.vercel.app
 
+Pour tester l'application, connectez-vous avec le compte de démonstration :
+
+| E-mail | Mot de passe |
+|---|---|
+| `demo@cinetica.fr` | `Cinetica2026` |
+
 ## Fonctionnalités
 
 - **Connexion** par e-mail et mot de passe (NextAuth, mots de passe hachés avec bcrypt). Les pages du menu ne sont accessibles qu'une fois connecté.
